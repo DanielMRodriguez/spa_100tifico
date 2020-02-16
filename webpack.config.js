@@ -1,6 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-
+const CopyWeboackPlugin = require('copy-webpack-plugin');
 module.exports ={
     entry: './src/index.js',
     output: {
@@ -27,6 +27,12 @@ module.exports ={
             inject:true,
             template: './public/index.html',
             filename: './index.html'
-        })
+        }),
+        new CopyWeboackPlugin([
+            {
+                from: './src/styles/styles.css',
+                to: ''
+            }
+        ])
     ]
 }
